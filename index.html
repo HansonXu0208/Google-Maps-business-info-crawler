@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otrerastone Lead Generator + Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="control-panel">
+            <h2>Lead Search & Map</h2>
+            
+            <div class="form-group">
+                <label for="apiKey">Google API Key</label>
+                <input type="password" id="apiKey" placeholder="Paste API Key here">
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label>Search Center</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="locationType" value="current" checked> Use GPS
+                    </label>
+                    <label>
+                        <input type="radio" name="locationType" value="custom"> Custom Address
+                    </label>
+                </div>
+                <input type="text" id="customAddress" placeholder="e.g., 123 Main St, Melbourne" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="radius">Radius (km)</label>
+                <select id="radius">
+                    <option value="3000">3 km</option>
+                    <option value="5000">5 km</option>
+                    <option value="10000" selected>10 km</option>
+                    <option value="15000">15 km</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="keywords">Keywords (Comma separated)</label>
+                <textarea id="keywords" placeholder="builder, interior designer, architect"></textarea>
+            </div>
+
+            <div class="action-buttons">
+                <button id="btnSearch" class="primary-btn">Search Leads</button>
+                <div id="statusIndicator" class="status">Ready</div>
+            </div>
+
+            <hr>
+
+            <div class="export-buttons">
+                <button id="btnExportCSV">Export CSV</button>
+                <button id="btnCopyClipboard">Copy to Clipboard</button>
+            </div>
+            
+            <p class="disclaimer">
+                Strict Schema: Business Name, Phone, Address, Website only. No ratings.
+            </p>
+        </aside>
+
+        <main class="results-panel">
+            <div id="map"></div>
+
+            <div class="table-container">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Business Name</th>
+                            <th>Contact Person</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Website</th>
+                            <th>Category</th>
+                            <th>Address</th>
+                            <th>Maps URL</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
